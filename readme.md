@@ -14,6 +14,6 @@ This code is to set up duckdns in a docker container.
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://github.com/xuchang-yong/duckdns
+[linkedin-url]: https://www.linkedin.com/in/xu-chang-xc-yong-5238a839/
 [website-shield]: https://img.shields.io/badge/Website%20-%20Yong%20Xu%20Chang%20-%2000CCFF?style=for-the-badge&color=00CCFF&link=https%3A%2F%2www.google.com
-[website-link]: https://www.linkedin.com/in/xu-chang-xc-yong-5238a839/
+[website-link]: https://github.com/xuchang-yong/duckdns
