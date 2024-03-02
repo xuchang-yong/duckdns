@@ -2,5 +2,5 @@ FROM ghcr.io/linuxserver/duckdns:version-b14c520a
 RUN echo *** DUCKDNS ***
 
 USER root
-COPY *.crt /usr/local/share/ca-certificates
+COPY ./ca_certs /usr/local/share/ca-certificates
 RUN update-ca-certificates
