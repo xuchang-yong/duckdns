@@ -1,2 +1,4 @@
 *.crt
 .env
+secrets/
+ca_certs/

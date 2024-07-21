@@ -1,27 +1,29 @@
 version: "3.2"
 services:
   duckdns:
-    image: ghcr.io/linuxserver/duckdns:latest
-#    build:
+    image: ghcr.io/linuxserver/duckdns:version-b14c520a
+#    build:                       #use this if CA cert is needed
 #      dockerfile: dockerfile.duckdns
-#    image: duckdns
     container_name: duckdns
-    network_mode: host #optional
+    network_mode: host            #optional
     environment:
-      - PUID=$PUID_DUCK         #optional
-      - PGID=$PGID_DUCK         #optional
-      - TZ=$TIMEZONE            #optional
-      - SUBDOMAINS=$SUB_DOMAINS
-      - TOKEN=$TOKEN
-      - UPDATE_IP=$UPDATE_IP    #optional
-      - LOG_FILE=$LOGFILE_FLAG  #optional
+      PUID: $PUID_DUCK            #optional
+      PGID: $PGID_DUCK            #optional
+      TZ: $TIMEZONE               #optional
+      UPDATE_IP: $UPDATE_IP       #optional
+      LOG_FILE: $LOGFILE_FLAG     #optional
+      SUBDOMAINS: $SUB_DOMAINS
+#      TOKEN: /run/secrets/tk_duckdns
+      TOKEN: $DUCKDNS_TOKEN
+    secrets:
+       - tk_duckdns
     volumes:
-      - vol_duckdns:/config     #optional
-      - "${PWD}/ca_certs/cloudflare-dns.crt:/usr/local/share/ca-certificates/cloudflare-dns.crt"
-      - "${PWD}/ca_certs/duckdns.org.crt:/usr/local/share/ca-certificates/duckdns.org.crt"
-    command: 
-      - "update-ca-certificates"
+      - fs_duckdns:/config     #optional
     restart: unless-stopped
 
+secrets:
+   tk_duckdns:
+     file: secrets/db_password.txt
+
 volumes:
-  vol_duckdns:
+  fs_duckdns:
