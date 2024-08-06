@@ -13,17 +13,10 @@ services:
       UPDATE_IP: $UPDATE_IP       #optional
       LOG_FILE: $LOGFILE_FLAG     #optional
       SUBDOMAINS: $SUB_DOMAINS
-#      TOKEN: /run/secrets/tk_duckdns
       TOKEN: $DUCKDNS_TOKEN
-    secrets:
-       - tk_duckdns
     volumes:
       - fs_duckdns:/config     #optional
     restart: unless-stopped
-
-secrets:
-   tk_duckdns:
-     file: secrets/db_password.txt
 
 volumes:
   fs_duckdns:
